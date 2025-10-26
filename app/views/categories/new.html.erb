@@ -1,0 +1,12 @@
+<% content_for :title, t('.title') %>
+
+<h1><%= t('.title') %></h1>
+
+<%= render "form", category: @category %>
+
+<br>
+
+<%# Link "Voltar" estilizado como botão secundário com margem acima %>
+<div>
+  <%= link_to t('categories.index.title'), categories_path, class: "btn btn-secondary mt-3" %>
+</div>

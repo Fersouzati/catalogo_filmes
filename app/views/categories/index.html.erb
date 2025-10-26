@@ -1,0 +1,17 @@
+<% content_for :title, t('.title') %>
+
+<h1><%= t('.title') %></h1>
+
+<div id="categories">
+  <% @categories.each do |category| %>
+    <%= render category %> 
+    <p>
+      <%= link_to t('common.show'), category %> | 
+      <%= link_to t('common.edit'), edit_category_path(category) %> | 
+      <%= button_to t('common.destroy'), category, method: :delete, data: { confirm: t('common.confirm_destroy') }, form: { style: 'display:inline-block;' } %>
+    </p>
+    <hr>
+  <% end %>
+</div>
+
+<%= link_to t('.new_category'), new_category_path %>

@@ -1,0 +1,62 @@
+<%= form_with(model: film, local: true) do |form| %>
+  <% if film.errors.any? %>
+    <div style="color: red">
+      <h2>
+        <%= pluralize(film.errors.count, t('errors.prohibited', default: "erro")) %>
+        <%= t('errors.prohibited_from_saving', default: "proibiu que este filme fosse salvo") %>:
+      </h2>
+
+      <ul>
+        <% film.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :title %>
+    <%= form.text_field :title %>
+  </div>
+
+  <div>
+    <%= form.label :synopsis %>
+    <%= form.text_area :synopsis %>
+  </div>
+
+  <div>
+    <%= form.label :release_year %>
+    <%= form.number_field :release_year %>
+  </div>
+
+  <div>
+    <%= form.label :duration %>
+    <%= form.number_field :duration %>
+  </div>
+
+  <div>
+    <%= form.label :director %>
+    <%= form.text_field :director %>
+  </div>
+
+  <div>
+    <%= form.label :poster %><br>
+    <%= form.file_field :poster %>
+  </div>
+
+  <h3><%= t('activerecord.models.category.other', default: "Categorias") %></h3>
+  <% Category.all.each do |category| %>
+    <%= form.check_box :category_ids, { multiple: true }, category.id, nil %>
+    <%= form.label "category_#{category.id}", category.name %>
+    <br>
+  <% end %>
+
+  <div>
+    <%= form.label :tag_list %>
+    <%= form.text_field :tag_list, value: @film.tags.pluck(:name).join(', '), style: "width: 400px;" %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>

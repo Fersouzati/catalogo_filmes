@@ -1,0 +1,62 @@
+<% content_for :title, t('.title') %>
+
+<h1><%= t('.title') %></h1>
+
+<%= form_with(url: films_path, method: :get, local: true) do |form| %>
+  <div class="search-form-container">
+    <div class="search-field">
+      <%= form.label :search_title, t('.search_title') %><br>
+      <%= form.text_field :search_title, value: params[:search_title], placeholder: t('.placeholder_title') %>
+    </div>
+
+    <div class="search-field">
+      <%= form.label :search_director, t('.search_director') %><br>
+      <%= form.text_field :search_director, value: params[:search_director], placeholder: t('.placeholder_director') %>
+    </div>
+
+    <div class="search-field">
+      <%= form.label :search_year, t('.search_year') %><br>
+      <%= form.number_field :search_year, value: params[:search_year], placeholder: t('.placeholder_year') %>
+    </div>
+
+    <div class="search-field">
+      <%= form.label :search_category, t('activerecord.models.category.one', default: "Categoria") %><br>
+      <%= form.select :search_category, options_from_collection_for_select(Category.all, :id, :name, params[:search_category]), include_blank: t('.all_categories') %>
+    </div>
+
+    <div class="search-field">
+      <%= form.label :search_tags, t('.search_tags') %><br>
+      <%= form.text_field :search_tags, value: params[:search_tags], placeholder: t('.placeholder_tags') %>
+    </div>
+
+    <div>
+      <%= form.submit t('.search'), class: "btn btn-primary" %>
+    </div>
+  </div>
+<% end %>
+
+<% if user_signed_in? %>
+  <div class="action-buttons-container">
+    <%= link_to t('.new_film'), new_film_path, class: "btn btn-success" %>
+    <%= link_to t('.import_films'), new_import_path, class: "btn btn-warning" %> 
+    <%= link_to t('categories.index.new_category'), new_category_path, class: "btn btn-info" %>
+  </div>
+<% end %>
+
+<% if @films.any? %>
+  
+  <div id="films" data-controller="fade-in">
+    <% @films.each do |film| %>
+      <%= render film %>
+    <% end %>
+  </div>
+<% else %>
+  <p><%= t('films.index.no_films_found', default: "Nenhum filme encontrado com os critérios de busca.") %></p>
+<% end %>
+
+
+<div class="pagination-container">
+  <%= paginate @films %>
+</div>
+
+

@@ -1,0 +1,88 @@
+<p style="color: green"><%= notice %></p>
+
+<div class="film-card" id="<%= dom_id @film %>">
+  <% if @film.poster.attached? %>
+    <div class="film-poster-container">
+      <%= image_tag @film.poster, class: "film-poster-image" %>
+    </div>
+  <% end %>
+
+  <div class="film-info">
+    <p><strong><%= t('activerecord.attributes.film.title') %>:</strong> <%= @film.title %></p>
+    <p><strong><%= t('activerecord.attributes.film.synopsis') %>:</strong> <%= @film.synopsis %></p>
+    <p><strong><%= t('activerecord.attributes.film.release_year') %>:</strong> <%= @film.release_year %></p>
+    <p><strong><%= t('activerecord.attributes.film.duration') %>:</strong> <%= @film.duration %> min</p>
+    <p><strong><%= t('activerecord.attributes.film.director') %>:</strong> <%= @film.director %></p>
+
+    <% if @film.categories.any? %>
+      <p>
+        <strong><%= t('activerecord.attributes.film.category_ids') %>:</strong>
+        <% @film.categories.each do |category| %>
+          <span class="film-category-badge"><%= category.name %></span>
+        <% end %>
+      </p>
+    <% end %>
+
+    <% if @film.tags.any? %>
+      <p>
+        <strong><%= t('activerecord.attributes.film.tag_list') %>:</strong>
+        <% @film.tags.each do |tag| %>
+          <span class="film-tag-badge"><%= tag.name %></span>
+        <% end %>
+      </p>
+    <% end %>
+  </div>
+</div>
+
+<div class="film-actions" style="margin-top: 20px;">
+  <% if @film.user == current_user %>
+    <%= link_to t('common.edit'), edit_film_path(@film), class: "btn btn-primary" %>
+    <%= button_to t('common.destroy'), @film, method: :delete, data: { confirm: t('common.confirm_destroy') }, class: "btn btn-danger" %>
+  <% end %>
+
+  <%= link_to t('common.back'), films_path, class: "btn btn-info" %>
+</div>
+
+<hr>
+
+<h3><%= t('films.show.comments_title') %> (<%= @film.comments.count %>)</h3>
+
+<div id="comments">
+  <% if @film.comments.any? %>
+    <% @film.comments.each do |comment| %>
+      <div class="comment-card">
+        <p>
+          <strong><%= comment.author_name %></strong>
+          <span style="color: #888; font-size: 0.8em;">
+            comentou em <%= l(comment.created_at, format: :short) %>
+          </span>
+        </p>
+        <p><%= comment.content %></p>
+      </div>
+    <% end %>
+  <% else %>
+    <p><%= t('films.show.be_first_comment') %></p>
+  <% end %>
+</div>
+
+<hr>
+
+<h3><%= t('films.show.add_comment') %></h3>
+
+<%= form_with(model: [@film, @film.comments.build], local: true) do |form| %>
+  <% unless user_signed_in? %>
+    <p>
+      <%= form.label :author_name, t('films.show.your_name') %><br>
+      <%= form.text_field :author_name %>
+    </p>
+  <% end %>
+
+  <p>
+    <%= form.label :content, t('films.show.comment_label') %><br>
+    <%= form.text_area :content, rows: 5 %>
+  </p>
+
+  <p>
+    <%= form.submit t('films.show.submit_comment'), class: "btn btn-primary" %>
+  </p>
+<% end %>

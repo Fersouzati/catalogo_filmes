@@ -1,0 +1,41 @@
+
+<div class="film-card <%= "full-show" if local_assigns[:full_show] %>" id="<%= dom_id film %>" data-fade-in-target="item">
+
+  <% if film.poster.attached? %>
+    <div class="film-poster-container">
+      <%= image_tag film.poster, class: "film-poster-image" %>
+    </div>
+  <% end %>
+
+  <div class="film-info">
+    <p><strong><%= t('activerecord.attributes.film.title') %>:</strong> <%= film.title %></p>
+    <p><strong><%= t('activerecord.attributes.film.synopsis') %>:</strong> <%= truncate(film.synopsis, length: 120) %></p>
+    <p><strong><%= t('activerecord.attributes.film.release_year') %>:</strong> <%= film.release_year %></p>
+    <p><strong><%= t('activerecord.attributes.film.duration') %>:</strong> <%= film.duration %> min</p>
+    <p><strong><%= t('activerecord.attributes.film.director') %>:</strong> <%= film.director %></p>
+
+    <% if film.categories.any? %>
+      <p>
+        <strong><%= t('activerecord.attributes.film.category_ids') %>:</strong>
+        <% film.categories.each do |category| %>
+          <span class="film-category-badge"><%= category.name %></span>
+        <% end %>
+      </p>
+    <% end %>
+
+    <% if film.tags.any? %>
+      <p>
+        <strong><%= t('activerecord.attributes.film.tag_list') %>:</strong>
+        <% film.tags.each do |tag| %>
+          <span class="film-tag-badge" data-controller="highlight" data-highlight-tag-value="<%= tag.name %>"><%= tag.name %></span>
+        <% end %>
+      </p>
+    <% end %>
+  </div>
+
+  <% unless local_assigns[:full_show] %>
+    <div class="film-show-link-container">
+      <%= link_to t('common.show'), film, class: "btn btn-sm btn-outline-primary" %>
+    </div>
+  <% end %>
+</div>

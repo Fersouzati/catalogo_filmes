@@ -1,0 +1,11 @@
+<% content_for :title, @category.name %> 
+
+<%= render @category %> 
+
+<hr> 
+
+<div>
+  <%= link_to t('.edit'), edit_category_path(@category) %> |
+  <%= link_to t('.back'), categories_path %> |
+  <%= button_to t('.destroy'), @category, method: :delete, data: { confirm: t('common.confirm_destroy') }, form: { style: 'display:inline-block;' } %>
+</div>

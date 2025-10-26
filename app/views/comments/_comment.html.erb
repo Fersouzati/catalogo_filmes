@@ -1,0 +1,9 @@
+<div style="border: 1px solid #eee; padding: 10px; margin-bottom: 10px;">
+  <p>
+    <strong><%= comment.author_name %></strong>
+    <span style="color: #888; font-size: 0.8em;">
+      <%= t('films.show.commented_at') %> <%= l comment.created_at, format: :short %>
+    </span>
+  </p>
+  <p><%= comment.content %></p>
+</div>

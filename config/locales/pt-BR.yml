@@ -1,0 +1,173 @@
+pt-BR:
+  
+  activerecord:
+    models:
+      film: "Filme"
+      comment: "Comentário"
+      category: "Categoria"
+      user: "Usuário"
+    attributes:
+      film:
+        title: "Título" 
+        synopsis: "Sinopse"
+        release_year: "Ano de Lançamento"
+        duration: "Duração (min)"
+        director: "Diretor"
+        poster: "Pôster"
+        user: "Usuário"
+        category_ids: "Categorias"
+        tag_list: "Tags"
+      comment:
+        content: "Comentário"
+        author_name: "Seu Nome"
+      category:
+        name: "Nome"
+      user: 
+        email: "E-mail"  
+
+  
+  helpers:
+    submit:
+      create: "Criar %{model}"
+      update: "Atualizar %{model}"
+      submit: "Salvar %{model}"
+
+  
+  films:
+    index:
+      title: "Filmes"
+      new_film: "Novo Filme"
+      search_title: "Buscar por Título"
+      search_director: "Buscar por Diretor"
+      search_year: "Buscar por Ano"
+      all_categories: "Todas as Categorias"
+      search_tags: "Buscar por Tags"
+      search: "Buscar"
+      
+      placeholder_title: "Digite o título..."
+      placeholder_director: "Digite o nome do diretor..."
+      placeholder_year: "Digite o ano..."
+      placeholder_tags: "Digite tags (ex: ação, comédia)..."
+      import_films: "Importar Filmes"
+      
+    new:
+      title: "Novo Filme"
+    edit:
+      title: "Editar Filme"
+    show:
+      edit: "Editar este Filme"
+      destroy: "Apagar este Filme"
+      back: "Voltar para Filmes"
+      add_comment: "Adicionar comentário"
+      comments_title: "Comentários"
+      be_first_comment: "Seja o primeiro a comentar!"
+      submit_comment: "Enviar comentário"
+      your_name: "Seu Nome"
+      comment_label: "Comentário"
+      commented_at: "comentou em"
+
+  
+  categories:
+    index:
+      title: "Categorias"
+      new_category: "Nova Categoria"
+    new:
+      title: "Nova Categoria"
+    edit:
+      title: "Editar Categoria"
+    show:
+      edit: "Editar esta Categoria"
+      destroy: "Apagar esta Categoria"
+      back: "Voltar para Categorias"
+    create:
+      notice: "Categoria criada com sucesso."
+    update:
+      notice: "Categoria atualizada com sucesso."
+    destroy:
+      notice: "Categoria apagada com sucesso."
+    _category:
+      name: "Nome" 
+    _form:
+      create_category: "Criar Categoria"
+      update_category: "Atualizar Categoria"
+
+  
+  common:
+    back: "Voltar"
+    edit: "Editar"
+    destroy: "Apagar"
+    show: "Mostrar"
+    new: "Novo(a)"
+    confirm_destroy: "Tem certeza?"
+    actions: "Ações"
+
+  
+  errors:
+    prohibited: "erro"
+    prohibited_from_saving: "proibiu que este registro fosse salvo"
+
+  
+  date:
+    formats:
+      default: "%d/%m/%Y"
+      short: "%d/%m/%Y"
+      long: "%d de %B de %Y"
+
+  
+  time:
+    formats:
+      default: "%d/%m/%Y %H:%M"
+      short: "%d/%m %H:%M"
+      long: "%d de %B de %Y, %H:%M"
+
+  
+  devise:
+    sessions:
+      signed_in: "Login efetuado com sucesso."
+      signed_out: "Logout efetuado com sucesso."
+      new:
+        sign_in: "Entrar"
+        email: "E-mail"
+        password: "Senha"
+        remember_me: "Lembrar-me"
+        submit: "Entrar"
+        forgot_password: "Esqueceu sua senha?"
+    registrations:
+      new:
+        sign_up: "Cadastrar-se"
+        name: "Nome"
+        email: "E-mail"
+        password: "Senha"
+        password_confirmation: "Confirme a senha"
+        submit: "Cadastrar-se"
+      edit:
+        edit_account: "Editar Conta"
+        submit: "Atualizar"
+    passwords:
+      new:
+        send_reset_password_instructions: "Enviar instruções de recuperação de senha"
+      edit:
+        change_your_password: "Alterar sua senha"
+        submit: "Atualizar senha"
+    confirmations:
+      send_instructions: "Enviar instruções de confirmação"
+      confirmed: "Sua conta foi confirmada com sucesso."
+    unlocks:
+      send_instructions: "Enviar instruções para desbloquear a conta"
+      unlocked: "Sua conta foi desbloqueada com sucesso."
+    
+  mailers:
+    user_mailer:
+      import_finished:
+        subject: "Importação de filmes concluída"
+        greeting: "Olá %{name},"
+        body: "A importação dos seus filmes foi concluída com sucesso."
+  
+  views: 
+    pagination: 
+      first: "&laquo; Primeira" 
+      last: "Última &raquo;" 
+      previous: "&lsaquo; Anterior" 
+      next: "Próxima &rsaquo;" 
+      truncate: "..." 
+     

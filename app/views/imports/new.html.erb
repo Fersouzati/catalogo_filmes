@@ -1,0 +1,5 @@
+<h1>Importar filmes via CSV</h1>
+<%= form_with url: imports_path, local: true, multipart: true do |form| %>
+  <%= form.file_field :csv_file %>
+  <%= form.submit "Importar Filmes", data: { turbo_submits_with: "Importando..." } %>
+<% end %>

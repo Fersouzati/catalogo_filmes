@@ -1,0 +1,12 @@
+<% content_for :title, "Editing film" %>
+
+<h1><%= t('.title') %></h1>
+
+<%= render "form", film: @film %>
+
+<br>
+
+<div>
+  <%= link_to t('common.show'), @film %>
+  <%= link_to t('common.back'), films_path %>
+</div>
