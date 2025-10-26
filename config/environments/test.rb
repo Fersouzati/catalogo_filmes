@@ -7,7 +7,7 @@ Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
 
- 
+
   config.enable_reloading = true
 
   # Eager loading loads your entire application. When running a single test locally,
