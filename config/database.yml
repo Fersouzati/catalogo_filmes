@@ -1,17 +1,23 @@
+
+
 default: &default
   adapter: postgresql
   encoding: unicode
   max_connections: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-  username: postgres
-  password: 123456
+  
+  url: <%= ENV['DATABASE_URL'] %> 
 
 development:
   <<: *default
+  
   database: catalogo_filmes_development
+  username: postgres 
+  password: 123456 
 
 test:
   <<: *default
   database: catalogo_filmes_test
 
 production:
-  url: <%= ENV['DATABASE_URL'] %>
+  
+  <<: *default
