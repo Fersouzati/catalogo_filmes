@@ -8,7 +8,8 @@ class ImportsController < ApplicationController
   file = params[:csv_file]
 
 
-  extension = File.extname(file.original_filename)
+  extension = (File.extname(file.original_filename) == ".csv") ? ".csv" : ".tmp"
+
   unique_filename = "#{Time.current.to_i}_#{SecureRandom.hex(4)}_import_data#{extension}"
 
   path = Rails.root.join("tmp", unique_filename)
