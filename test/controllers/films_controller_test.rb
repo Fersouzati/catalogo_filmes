@@ -1,6 +1,7 @@
 require "test_helper"
 
 class FilmsControllerTest < ActionDispatch::IntegrationTest
+  include Devise::Test::IntegrationHelpers
   setup do
     @admin_user = users(:user_admin)
     sign_in @admin_user
