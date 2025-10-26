@@ -1,11 +1,10 @@
 class FilmsController < ApplicationController
-  before_action :authenticate_user!, except: [:index, :show]
+  before_action :authenticate_user!, except: [ :index, :show ]
   before_action :set_public_film, only: %i[show]
   before_action :set_secure_film, only: %i[edit update destroy]
 
   # GET /films
   def index
-    
     @scope = Film.order(created_at: :desc)
 
     @scope = @scope.where("title ILIKE ?", "%#{params[:search_title]}%") if params[:search_title].present?
@@ -18,7 +17,7 @@ class FilmsController < ApplicationController
     end
 
     if params[:search_tags].present?
-      tag_names = params[:search_tags].split(',').map(&:strip).map(&:downcase)
+      tag_names = params[:search_tags].split(",").map(&:strip).map(&:downcase)
       @scope = @scope.joins(:tags).where("LOWER(tags.name) IN (?)", tag_names).distinct
     end
 

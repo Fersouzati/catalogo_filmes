@@ -38,10 +38,10 @@ RSpec.configure do |config|
   config.include Warden::Test::Helpers
   config.before(:suite) { Warden.test_mode! }
   config.include Devise::Test::ControllerHelpers, type: :controller
-    
+
   config.include FactoryBot::Syntax::Methods
 
-  
+
   config.before(:suite) do
     DatabaseCleaner.strategy = :transaction
     DatabaseCleaner.clean_with(:truncation)

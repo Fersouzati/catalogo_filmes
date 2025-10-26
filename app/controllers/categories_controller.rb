@@ -25,8 +25,8 @@ class CategoriesController < ApplicationController
 
     respond_to do |format|
       if @category.save
-        
-        format.html { redirect_to @category, notice: t('.notice') }
+
+        format.html { redirect_to @category, notice: t(".notice") }
         format.json { render :show, status: :created, location: @category }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -39,8 +39,8 @@ class CategoriesController < ApplicationController
   def update
     respond_to do |format|
       if @category.update(category_params)
-        
-        format.html { redirect_to @category, notice: t('.notice'), status: :see_other }
+
+        format.html { redirect_to @category, notice: t(".notice"), status: :see_other }
         format.json { render :show, status: :ok, location: @category }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -54,21 +54,19 @@ class CategoriesController < ApplicationController
     @category.destroy!
 
     respond_to do |format|
-      
-      format.html { redirect_to categories_path, notice: t('.notice'), status: :see_other }
+      format.html { redirect_to categories_path, notice: t(".notice"), status: :see_other }
       format.json { head :no_content }
     end
   end
 
   private
-    
+
     def set_category
-      
       @category = Category.find(params[:id])
     end
 
     # Only allow a list of trusted parameters through.
-    
+
     def category_params
       params.require(:category).permit(:name)
     end

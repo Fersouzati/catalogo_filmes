@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe Film, type: :model do
   it "é válido com atributos válidos" do
-    film = build(:film) 
+    film = build(:film)
     expect(film).to be_valid
   end
 

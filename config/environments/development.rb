@@ -32,22 +32,22 @@ Rails.application.configure do
   # Store uploaded files on the local file system (see config/storage.yml for options).
   config.active_storage.service = :local
 
-  
+
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.raise_delivery_errors = true # Mantenha true para ver erros
   config.action_mailer.perform_deliveries = true # Garante que os emails sejam realmente enviados
   config.action_mailer.smtp_settings = {
-    address:              'smtp.gmail.com',
+    address:              "smtp.gmail.com",
     port:                 587,
-    domain:               'gmail.com', # Ou seu domínio se usar GSuite
+    domain:               "gmail.com", # Ou seu domínio se usar GSuite
     user_name:            Rails.application.credentials.dig(:gmail, :address),
     password:             Rails.application.credentials.dig(:gmail, :password),
-    authentication:       'plain',
+    authentication:       "plain",
     enable_starttls_auto: true,
     open_timeout:         5,
-    read_timeout:         5 
+    read_timeout:         5
   }
-  
+
 
   # Make template changes take effect immediately.
   config.action_mailer.perform_caching = false

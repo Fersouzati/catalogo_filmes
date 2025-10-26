@@ -62,24 +62,19 @@ group :development do
 end
 
 group :development, :test do
-  gem 'rspec-rails'
-  gem 'factory_bot_rails'
-  
+  gem "rspec-rails"
+  gem "factory_bot_rails"
 end
 
 group :test do
-  gem 'capybara'
-  gem 'selenium-webdriver'
-  gem 'webdrivers'
-  gem 'database_cleaner-active_record'
+  gem "capybara"
+  gem "selenium-webdriver"
+  gem "webdrivers"
+  gem "database_cleaner-active_record"
 end
-  gem 'devise' 
-  gem 'rails-i18n'
-  gem 'devise-i18n'
-  gem 'kaminari'
-  gem 'sidekiq'
-  gem 'csv'
-  
-  
-
- 
+  gem "devise"
+  gem "rails-i18n"
+  gem "devise-i18n"
+  gem "kaminari"
+  gem "sidekiq"
+  gem "csv"

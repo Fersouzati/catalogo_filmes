@@ -1,20 +1,19 @@
 class CommentsController < ApplicationController
 def create
-  
   @film = Film.find(params[:film_id])
 
   @comment = @film.comments.build(comment_params)
-  
+
   if user_signed_in?
     @comment.user = current_user
-    @comment.author_name = current_user.email 
+    @comment.author_name = current_user.email
   end
 
   if @comment.save
-    redirect_to film_path(@film), notice: 'Comentário enviado com sucesso!'
+    redirect_to film_path(@film), notice: "Comentário enviado com sucesso!"
   else
-    
-    redirect_to film_path(@film), alert: 'Erro ao enviar comentário.'
+
+    redirect_to film_path(@film), alert: "Erro ao enviar comentário."
   end
 end
 

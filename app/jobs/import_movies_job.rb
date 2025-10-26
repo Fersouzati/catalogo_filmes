@@ -1,4 +1,4 @@
-require 'csv' # Garante que a biblioteca CSV está carregada
+require "csv" # Garante que a biblioteca CSV está carregada
 
 class ImportMoviesJob
   include Sidekiq::Job
@@ -20,7 +20,7 @@ class ImportMoviesJob
     user = User.find(user_id)
 
     begin
-      CSV.foreach(file_path, headers: true, encoding: 'UTF-8') do |row| # Adicionado encoding UTF-8 por segurança
+      CSV.foreach(file_path, headers: true, encoding: "UTF-8") do |row| # Adicionado encoding UTF-8 por segurança
         # Considerar usar find_or_create_by para evitar duplicatas exatas,
         # mas para CSVs grandes isso pode ser lento. A proteção de status é mais importante aqui.
         film = user.films.build( # Usar 'build' em vez de 'create' pode ser mais seguro dentro de loops

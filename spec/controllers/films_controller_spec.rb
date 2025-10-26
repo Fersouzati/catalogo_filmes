@@ -26,7 +26,7 @@ RSpec.describe FilmsController, type: :controller do
     before { sign_in user }
 
     it "remove o filme" do
-      film 
+      film
       expect {
         delete :destroy, params: { id: film.id }
       }.to change(Film, :count).by(-1)
