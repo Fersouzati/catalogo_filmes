@@ -208,7 +208,6 @@ GEM
     mini_magick (5.3.1)
       logger
     mini_mime (1.1.5)
-    mini_portile2 (2.8.9)
     minitest (5.26.0)
     msgpack (1.8.0)
     net-imap (0.5.12)
@@ -226,9 +225,6 @@ GEM
       net-protocol
     net-ssh (7.3.0)
     nio4r (2.7.4)
-    nokogiri (1.18.10)
-      mini_portile2 (~> 2.8.2)
-      racc (~> 1.4)
     nokogiri (1.18.10-x64-mingw-ucrt)
       racc (~> 1.4)
     nokogiri (1.18.10-x86_64-linux-gnu)
@@ -393,6 +389,7 @@ GEM
       fugit (~> 1.11)
       railties (>= 7.1)
       thor (>= 1.3.1)
+    spring (4.4.0)
     sshkit (1.24.0)
       base64
       logger
@@ -441,7 +438,6 @@ GEM
     zeitwerk (2.7.3)
 
 PLATFORMS
-  ruby
   x64-mingw-ucrt
   x86_64-linux
 
@@ -474,6 +470,7 @@ DEPENDENCIES
   solid_cable
   solid_cache
   solid_queue
+  spring
   stimulus-rails
   thruster
   turbo-rails
