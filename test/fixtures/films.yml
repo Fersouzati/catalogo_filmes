@@ -1,17 +1,17 @@
-# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
-
 one:
-  title: MyString
-  synopsis: MyText
-  release_year: 1
-  duration: 1
-  director: MyString
-  user: one
+  id: 980190962
+  title: Meu Primeiro Filme
+  synopsis: Uma sinopse de teste para o filme principal.
+  release_year: 2024
+  duration: 120
+  director: Diretor Fictício
+  user: user_admin
 
 two:
-  title: MyString
-  synopsis: MyText
-  release_year: 1
-  duration: 1
-  director: MyString
-  user: two
+  id: 980190963
+  title: Segundo Filme
+  synopsis: Outra sinopse de teste.
+  release_year: 2023
+  duration: 90
+  director: Outro Diretor
+  user: user_editor
