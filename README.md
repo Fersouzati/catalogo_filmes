@@ -187,10 +187,11 @@ bundle exec rspec
 
 Deploy
 
-A aplicação está [hospedada/configurada para deploy] na plataforma Render (ou outra).
+A aplicação está hospedada na plataforma Render 
 
-Link da Aplicação: 
+Link da Aplicação: https://catalogo-filmes-808l.onrender.com
 Observação: Conforme especificado no desafio, o deploy do Sidekiq (e, portanto, a funcionalidade de importação CSV em produção) não é obrigatório devido à necessidade de um plano pago para o serviço Redis no Render. A funcionalidade foi completamente implementada e testada em ambiente de desenvolvimento.
 
 Autor
 Nanda -
+
